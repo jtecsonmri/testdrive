@@ -34,55 +34,25 @@ class Routes {
     logout: (BuildContext context) => const LogoutPage(),
     register: (BuildContext context) => const RegisterPage(),
     enterCode: (BuildContext context) => const EnterCodePage(),
+    hcViewer: (BuildContext context) => const HcViewerPage(),
+    clViewer: (BuildContext context) => const ClViewerPage(),
+    pbcViewer: (BuildContext context) => const PbcViewerPage(),
+    mdvViewer: (BuildContext context) => const MdvViewerPage(),
     mbcViewer: (BuildContext context) => const MbcViewerPage(),
     viewer: (BuildContext context) => const ViewerPage()
   };
   
   static Route<dynamic> getRoute(RouteSettings routeSettings) {
-    late Route<dynamic> pageRoute;
-    switch(routeSettings.name){
-      case splash:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const SplashPage(),settings: routeSettings);
-        break;
-      case home:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const HomePage(title: 'Home'),settings: routeSettings);
-        break;
-      case login:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const LoginPage(),settings: routeSettings);
-        break;
-      case logout:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const LogoutPage(),settings: routeSettings);
-        break;
-      case register:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const RegisterPage(),settings: routeSettings);
-        break;
-      case '/':        
-      case enterCode:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const EnterCodePage(),settings: routeSettings);
-        break;
-      case hcViewer:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const HcViewerPage(),settings: routeSettings);
-        break;
-      case clViewer:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const ClViewerPage(),settings: routeSettings);
-        break;
-      case pbcViewer:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const PbcViewerPage(),settings: routeSettings);
-        break;
-      case mdvViewer:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const MdvViewerPage(),settings: routeSettings);
-        break;
-      case mbcViewer:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const MbcViewerPage(),settings: routeSettings);
-        break;                                        
-      case viewer:
-        pageRoute = MaterialPageRoute(builder: (BuildContext context) => const ViewerPage(),settings: routeSettings);
-        break;                                                 
+    var builder = routes[home];
+    if(routes.containsKey(routeSettings.name)){
+      builder = routes[routeSettings.name];
+    } else if('/' == routeSettings.name){
+      builder = routes[enterCode];
     }
-    return pageRoute;
+    return MaterialPageRoute(builder: builder!, settings: routeSettings);
   }
 
-  static Route<dynamic> _errorRoute() {
+  static Route<dynamic> getErrorRoute() {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
         appBar: AppBar(

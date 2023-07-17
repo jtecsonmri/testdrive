@@ -102,12 +102,12 @@ class _LoginPageState extends State<LoginPage> {
 
   webViewLoginByCode(String code){
     var args = WebViewArgs();
-    args.initialUrl = 'https://ihealthconnected.com/ui/account/sign-in';
+    args.initialUrl = 'https://uat.mediresource.com/HC2020/ui/account/sign-in';
     if(code.isNotEmpty && code.length >= 2 ){
       String uniqueIdentifier = code.substring(0,2);
       switch(uniqueIdentifier){
         case '00':
-          args.initialUrl = 'https://ihealthconnected.com/ui/account/sign-in';
+          args.initialUrl = 'https://uat.mediresource.com/HC2020/ui/account/sign-in';
           Navigator.pushNamed(context, Routes.hcViewer, arguments: args);
           break;        
         case '01':
@@ -132,12 +132,12 @@ class _LoginPageState extends State<LoginPage> {
 
   webViewSsoLoginByCode(String code){
     var args = WebViewArgs();
-    args.initialUrl = 'https://login.mercer.com/';
+    args.initialUrl = 'https://demo.perquisite.net/RewardCentre/M/Login#/';
     if(code.isNotEmpty && code.length >= 2 ){
       String uniqueIdentifier = code.substring(0,2);
       switch(uniqueIdentifier){
         case '00':  
-          args.initialUrl = 'https://login.mercer.com/';
+          args.initialUrl = 'https://demo.perquisite.net/RewardCentre/M/Login#/';
           Navigator.pushNamed(context, Routes.hcViewer, arguments: args);
           break;        
         case '01':
@@ -158,55 +158,5 @@ class _LoginPageState extends State<LoginPage> {
           break;                              
       }
     }
-  }
-
-  getHealthConnectedUrl(String code){
-    String result = 'https://ihealthconnected.com/ui/account/sign-in';
-    if(code.isNotEmpty && code.length >= 2 ){
-      String uniqueIdentifier = code.substring(0,2);
-      switch(uniqueIdentifier){
-        case '00':
-          result = 'https://ihealthconnected.com/ui/account/sign-in';
-          break;        
-        case '01':
-          result = 'https://canadalife.ihealthconnected.com/ui';
-          break;
-        case '02':
-          result = 'https://pacificbluecross.ihealthconnected.com/ui';
-          break;
-        case '03':
-          result = 'https://medaviebc.ihealthconnected.com/ui';
-          break;
-        case '04':
-          result = 'https://mbc.ihealthconnected.com/ui';
-          break;                              
-      }
-    }
-    return result;
-  }
-  
-  getSingleSignOnUrl(String code){
-    String result = 'https://login.mercer.com/';
-    if(code.isNotEmpty && code.length >= 2 ){
-      String uniqueIdentifier = code.substring(0,2);
-      switch(uniqueIdentifier){
-        case '00':  
-          result = 'https://login.mercer.com/';
-          break;        
-        case '01':
-          result = 'https://my.canadalife.com/sign-in';
-          break;
-        case '02':
-          result = 'https://service.pac.bluecross.ca/member/login/';
-          break;
-        case '03':
-          result = 'https://members.medaviebc.ca/en/login';
-          break;
-        case '04':
-          result = 'https://member.mb.bluecross.ca';
-          break;                              
-      }
-    }
-    return result;
   }
 }
