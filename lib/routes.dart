@@ -11,6 +11,7 @@ import 'ui/logout.dart';
 import 'ui/pbc_viewer.dart';
 import 'ui/splash.dart';
 import 'ui/enter_code.dart';
+import 'ui/web_viewer.dart';
 
 class Routes {
   Routes._();
@@ -20,6 +21,7 @@ class Routes {
   static const String logout = '/logout';
   static const String register = '/register';
   static const String enterCode = '/enter_code';
+  static const String webViewer = '/web_viewer';
   static const String hcViewer = '/hc_viewer';
   static const String clViewer = '/cl_viewer';
   static const String pbcViewer = '/pbc_viewer';
@@ -39,6 +41,7 @@ class Routes {
     pbcViewer: (BuildContext context) => const PbcViewerPage(),
     mdvViewer: (BuildContext context) => const MdvViewerPage(),
     mbcViewer: (BuildContext context) => const MbcViewerPage(),
+    webViewer: (BuildContext context) => const WebViewerPage(),
     viewer: (BuildContext context) => const ViewerPage()
   };
   

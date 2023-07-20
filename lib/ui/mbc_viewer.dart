@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../models/web_view_args.dart';
+import '../models/webview_args.dart';
 
 class MbcViewerPage extends StatefulWidget {
   const MbcViewerPage({super.key});

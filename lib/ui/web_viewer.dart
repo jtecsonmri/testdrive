@@ -1,45 +1,41 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../models/webview_args.dart';
 
-class ClViewerPage extends StatefulWidget {
-  const ClViewerPage({super.key});
+class WebViewerPage extends StatefulWidget {
+  const WebViewerPage({super.key});
 
   @override
-  State<ClViewerPage> createState() => _ClViewerPageState();
+  State<WebViewerPage> createState() => _WebViewerPageState();
 }
 
-class _ClViewerPageState extends State<ClViewerPage> {
+class _WebViewerPageState extends State<WebViewerPage> {
   late final WebViewArgs args;
-  var loadingPercentage = 0;
   late final WebViewController controller;
+  static const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36';
+  var loadingPercentage = 0;
+
   @override
   void initState() {
     super.initState();
     controller = WebViewController()
+      ..setUserAgent(userAgent)
       ..setNavigationDelegate(NavigationDelegate(
         onPageStarted: (url) {
-          if (kDebugMode) {
-            print('WebViewController - onPageStarted: $url');
-          }          
+          debugPrint('WebViewController - onPageStarted: $url');         
           // setState(() {
           //   loadingPercentage = 0;
           // });
         },
         onProgress: (progress) {
-          if (kDebugMode) {
-            print('WebViewController - onProgress: $progress');
-          }          
+          debugPrint('WebViewController - onProgress: $progress');         
           // setState(() {
           //   loadingPercentage = progress;
           // });
         },
         onPageFinished: (url) {
-          if (kDebugMode) {
-            print('WebViewController - onPageFinished: $url');
-          }
+          debugPrint('WebViewController - onPageFinished: $url');
           // setState(() {
           //   loadingPercentage = 100;
           // });
@@ -48,19 +44,15 @@ class _ClViewerPageState extends State<ClViewerPage> {
           }
         },
         onUrlChange: (change) {
-          if (kDebugMode) {
-            print('WebViewController - onUrlChange: ${change.url}');
-          }          
-          
+          debugPrint('WebViewController - onUrlChange: ${change.url}');     
         },
         onWebResourceError: (error) {
-          if (kDebugMode) {
-            print('WebViewController - onWebResourceError: ${error.description}');
-          }            
+          debugPrint('WebViewController - onWebResourceError: ${error.description}');            
         },
       ))
       ..setJavaScriptMode(JavaScriptMode.unrestricted);
   }
+
   @override
   Widget build(BuildContext context) {
     args = ModalRoute.of(context)!.settings.arguments as WebViewArgs;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testdrive/models/web_view_args.dart';
+import 'package:testdrive/models/webview_args.dart';
 
 import '../routes.dart';
 
