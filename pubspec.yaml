@@ -38,6 +38,10 @@ dependencies:
   webview_flutter: ^4.2.2
   webview_flutter_android: ^3.9.1
   webview_flutter_wkwebview: ^3.7.0
+  flutter_local_notifications: ^15.1.0+1
+  #flutter_native_timezone: ^1.1.0
+  path_provider: ^2.0.15
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:

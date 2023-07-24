@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:testdrive/ui/notification_viewer.dart';
 import 'ui/hc_viewer.dart';
 import 'ui/home.dart';
 import 'ui/mbc_viewer.dart';
 import 'ui/mdv_viewer.dart';
+import 'ui/notify.dart';
 import 'ui/register.dart';
 import 'ui/viewer.dart';
 import 'ui/cl_viewer.dart';
@@ -21,6 +23,8 @@ class Routes {
   static const String logout = '/logout';
   static const String register = '/register';
   static const String enterCode = '/enter_code';
+  static const String notify = '/notify';
+  static const String notificationViewer = '/notification_viewer';
   static const String webViewer = '/web_viewer';
   static const String hcViewer = '/hc_viewer';
   static const String clViewer = '/cl_viewer';
@@ -36,6 +40,8 @@ class Routes {
     logout: (BuildContext context) => const LogoutPage(),
     register: (BuildContext context) => const RegisterPage(),
     enterCode: (BuildContext context) => const EnterCodePage(),
+    notify: (BuildContext context) => const NotifyPage(),
+    notificationViewer: (BuildContext context) => const NotificationViewerPage(),
     hcViewer: (BuildContext context) => const HcViewerPage(),
     clViewer: (BuildContext context) => const ClViewerPage(),
     pbcViewer: (BuildContext context) => const PbcViewerPage(),
@@ -50,7 +56,7 @@ class Routes {
     if(routes.containsKey(routeSettings.name)){
       builder = routes[routeSettings.name];
     } else if('/' == routeSettings.name){
-      builder = routes[enterCode];
+      builder = routes[notify];
     }
     return MaterialPageRoute(builder: builder!, settings: routeSettings);
   }
