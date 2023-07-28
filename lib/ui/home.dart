@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../models/route_args.dart';
+
 class HomePage extends StatefulWidget {
   final String title;
-  const HomePage({super.key, required this.title});
+  final RouteArgs? routeArgs;
+  const HomePage({super.key, required this.title, this.routeArgs});
   
   @override
   State<HomePage> createState() => _HomePageState();

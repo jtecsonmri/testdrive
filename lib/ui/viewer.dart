@@ -6,8 +6,11 @@ import 'package:webview_flutter_platform_interface/webview_flutter_platform_inte
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 
+import '../models/route_args.dart';
+
 class ViewerPage extends StatefulWidget {
-  const ViewerPage({super.key});
+  final RouteArgs? routeArgs;
+  const ViewerPage({super.key, this.routeArgs});
 
   @override
   State<ViewerPage> createState() => _ViewerPageState();
@@ -20,6 +23,7 @@ class _ViewerPageState extends State<ViewerPage> {
   @override
   void initState() {
     super.initState();
+    args = widget.routeArgs!.extra as WebViewArgs;
     controller = PlatformWebViewController(getPlatformWebViewControllerCreationParams())
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setPlatformNavigationDelegate(PlatformNavigationDelegate(
@@ -77,7 +81,6 @@ class _ViewerPageState extends State<ViewerPage> {
   }
   @override
   Widget build(BuildContext context) {
-    args = ModalRoute.of(context)!.settings.arguments as WebViewArgs;
     controller.loadRequest(LoadRequestParams(uri: Uri.parse(args.initialUrl!)));
     return SafeArea(
       child: PlatformWebViewWidget(

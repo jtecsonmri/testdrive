@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../models/route_args.dart';
+
 class LogoutPage extends StatefulWidget {
-  const LogoutPage({super.key});
+  final RouteArgs? routeArgs;
+  const LogoutPage({super.key, this.routeArgs});
 
   @override
   State<LogoutPage> createState() => _LogoutPageState();

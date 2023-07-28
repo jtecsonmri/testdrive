@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../models/route_args.dart';
 import '../models/webview_args.dart';
 
 class PbcViewerPage extends StatefulWidget {
-  const PbcViewerPage({super.key});
+  final RouteArgs? routeArgs;
+  const PbcViewerPage({super.key, this.routeArgs});
 
   @override
   State<PbcViewerPage> createState() => _PbcViewerPageState();
@@ -38,7 +40,7 @@ class _PbcViewerPageState extends State<PbcViewerPage> {
   }
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as WebViewArgs;
+    final args = widget.routeArgs!.extra as WebViewArgs;
     controller.loadRequest(Uri.parse(args.initialUrl!));
     return SafeArea(
       child: WebViewWidget(

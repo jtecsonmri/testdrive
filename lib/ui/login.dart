@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:testdrive/models/webview_args.dart';
 
+import '../models/route_args.dart';
 import '../routes.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final RouteArgs? routeArgs;
+  const LoginPage({super.key, this.routeArgs});
 
   @override
   State<LoginPage> createState() => _LoginPageState();

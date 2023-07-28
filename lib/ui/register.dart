@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../models/route_args.dart';
+
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+  final RouteArgs? routeArgs;
+  const RegisterPage({super.key, this.routeArgs});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();

@@ -2,10 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../models/route_args.dart';
 import '../models/webview_args.dart';
 
 class ClViewerPage extends StatefulWidget {
-  const ClViewerPage({super.key});
+  final RouteArgs? routeArgs;
+  const ClViewerPage({super.key, this.routeArgs});
 
   @override
   State<ClViewerPage> createState() => _ClViewerPageState();
@@ -18,6 +20,7 @@ class _ClViewerPageState extends State<ClViewerPage> {
   @override
   void initState() {
     super.initState();
+    args = widget.routeArgs!.extra as WebViewArgs;
     controller = WebViewController()
       ..setNavigationDelegate(NavigationDelegate(
         onPageStarted: (url) {
@@ -63,7 +66,6 @@ class _ClViewerPageState extends State<ClViewerPage> {
   }
   @override
   Widget build(BuildContext context) {
-    args = ModalRoute.of(context)!.settings.arguments as WebViewArgs;
     controller.loadRequest(Uri.parse(args.initialUrl!));
     return SafeArea(
       child: WebViewWidget(

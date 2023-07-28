@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:testdrive/services/notification_service.dart';
 
+import '../models/route_args.dart';
+
 class NotifyPage extends StatefulWidget {
-  const NotifyPage({super.key});
+  final RouteArgs? routeArgs;
+  const NotifyPage({super.key, this.routeArgs});
 
   @override
   State<NotifyPage> createState() => _NotifyPageState();

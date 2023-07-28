@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:testdrive/models/webview_args.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../models/route_args.dart';
+
 class HcViewerPage extends StatefulWidget {
-  const HcViewerPage({super.key});
+  final RouteArgs? routeArgs;
+  const HcViewerPage({super.key, this.routeArgs});
 
   @override
   State<HcViewerPage> createState() => _HcViewerPageState();
@@ -65,7 +68,7 @@ class _HcViewerPageState extends State<HcViewerPage> {
   }
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as WebViewArgs;
+    final args = widget.routeArgs!.extra as WebViewArgs;
     controller.loadRequest(Uri.parse(args.initialUrl!));
     return SafeArea(
       child: WebViewWidget(

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:testdrive/routes.dart';
 
+import '../models/route_args.dart';
 import '../models/webview_args.dart';
 
 class EnterCodePage extends StatefulWidget {
-  const EnterCodePage({super.key});
+  final RouteArgs? routeArgs;
+  const EnterCodePage({super.key, this.routeArgs});
 
   @override
   State<EnterCodePage> createState() => _EnterCodePageState();
@@ -98,7 +101,7 @@ class _EnterCodePageState extends State<EnterCodePage> {
     }
     bool isValid = args.initialUrl?.isNotEmpty ?? false;
     if(isValid){
-      Navigator.pushNamed(context, Routes.webViewer, arguments: args);
+      context.push(Routes.webViewer, extra: args);
     } else {
           const snackBar = SnackBar(
             content: Text('Invalid code'),

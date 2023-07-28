@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../models/route_args.dart';
+
 class NotificationViewerPage extends StatefulWidget {
-  const NotificationViewerPage({super.key});
+  final RouteArgs? routeArgs;
+  const NotificationViewerPage({super.key, this.routeArgs});
 
   @override
   State<NotificationViewerPage> createState() => _NotificationViewerPageState();
