@@ -92,7 +92,7 @@ class _EnterCodePageState extends State<EnterCodePage> {
           args.defaultUrl = 'https://demo.perquisite.net/RewardCentre/M/RC#/Home';
           args.targetUrl = 'https://demo.perquisite.net/RewardCentre/IdentityProvider/saml2?lid=549203ee-75d6-47e9-abee-fc33d20c9de1';
           //Navigator.pushNamed(context, Routes.hcViewer, arguments: args);
-        break;      
+        break;        
       case 'F8260BA9':
           args.initialUrl = 'https://my.canadalife.com/sign-in';
           args.defaultUrl = 'https://my.canadalife.com/s/dashboard';
