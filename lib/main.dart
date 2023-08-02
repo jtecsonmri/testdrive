@@ -1,10 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:testdrive/services/firebase_service.dart';
 
 import 'routes.dart';
 import 'services/navigation_service.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await FirebaseService().initPushNotifications();
   runApp(const MyApp());
 }
 

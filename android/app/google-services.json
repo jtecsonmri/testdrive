@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "893934493482",
+    "project_id": "testdrive-9ecee",
+    "storage_bucket": "testdrive-9ecee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893934493482:android:73ff906849c7177e4e4853",
+        "android_client_info": {
+          "package_name": "com.ihealthconnected.testdrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893934493482-5csjs0mcs4uobhq7vq3jho8k17fu726m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ihealthconnected.testdrive",
+            "certificate_hash": "0fb26ad234a2059c2713223cd91e44f42dfb8c52"
+          }
+        },
+        {
+          "client_id": "893934493482-ufcogq3j8e8qu0gumbsf6ad7nh0b95sm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWFPY34vhnq34sYgMyxkbz-ey6U89IJ7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893934493482-ufcogq3j8e8qu0gumbsf6ad7nh0b95sm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
